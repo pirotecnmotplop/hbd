@@ -2,10 +2,10 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Feliz Aniversário, Tia!</title>
+  <title>Feliz Aniversário, Tia</title>
 
-  <!-- Fonte elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <!-- Fonte delicada -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -16,42 +16,56 @@
 
     body {
       height: 100vh;
-      background: radial-gradient(circle at top, #ffdde1, #ee9ca7);
+      background: linear-gradient(to bottom, #fde2e4, #fadadd);
       display: flex;
       align-items: center;
       justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
       overflow: hidden;
-      font-family: 'Playfair Display', serif;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 60px 80px;
+    .container {
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.35);
+      backdrop-filter: blur(14px);
+      border-radius: 30px;
+      padding: 70px 60px;
       text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      animation: aparecer 1.5s ease forwards;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      animation: surgir 2s ease forwards;
     }
 
     h1 {
-      font-size: 3.5rem;
-      color: #fff;
-      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      animation: brilho 2.5s infinite alternate;
+      font-size: 3.4rem;
+      color: #7a2e3a;
+      margin-bottom: 30px;
+      animation: respirar 4s ease-in-out infinite;
     }
 
     p {
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #fff;
-      opacity: 0.9;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: #5a2a32;
+      opacity: 0;
+      animation: aparecerTexto 2s ease forwards;
+      animation-delay: 1.5s;
     }
 
-    @keyframes aparecer {
+    .assinatura {
+      margin-top: 40px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #6b2f3a;
+      opacity: 0;
+      animation: aparecerTexto 2s ease forwards;
+      animation-delay: 3s;
+    }
+
+    /* Animações */
+    @keyframes surgir {
       from {
         opacity: 0;
-        transform: translateY(40px) scale(0.95);
+        transform: translateY(50px) scale(0.95);
       }
       to {
         opacity: 1;
@@ -59,56 +73,78 @@
       }
     }
 
-    @keyframes brilho {
+    @keyframes aparecerTexto {
       from {
-        text-shadow: 0 0 10px #fff;
+        opacity: 0;
+        transform: translateY(15px);
       }
       to {
-        text-shadow: 0 0 25px #ffd700;
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    /* Confetes */
-    .confete {
+    @keyframes respirar {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
+
+    /* Corações flutuantes */
+    .coracao {
       position: absolute;
-      width: 10px;
-      height: 10px;
-      background-color: red;
-      opacity: 0.8;
-      animation: cair linear infinite;
+      bottom: -50px;
+      font-size: 20px;
+      color: rgba(180, 80, 100, 0.6);
+      animation: subir linear infinite;
     }
 
-    @keyframes cair {
+    @keyframes subir {
       from {
-        transform: translateY(-10vh) rotate(0deg);
+        transform: translateY(0) scale(0.8);
+        opacity: 0;
       }
+      10% { opacity: 1; }
       to {
-        transform: translateY(110vh) rotate(360deg);
+        transform: translateY(-110vh) scale(1.2);
+        opacity: 0;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <h1>🎉 Feliz aniversário, tia! 🎂</h1>
-    <p>Que seu dia seja repleto de amor, alegria e momentos especiais.</p>
+  <div class="container">
+    <h1>Feliz aniversário, tia 🤍</h1>
+
+    <p>
+      Que este dia te envolva com a mesma ternura que você espalha por onde passa.
+      Que cada sorriso seja sincero, cada abraço seja acolhedor e cada instante
+      seja preenchido com paz, amor e gratidão.
+      <br><br>
+      Você é presença que conforta, carinho que permanece e luz que aquece.
+      Hoje é o seu dia — e ele merece ser tão bonito quanto o seu coração.
+    </p>
+
+    <div class="assinatura">
+      Com todo o meu amor 💐
+    </div>
   </div>
 
   <script>
-    const cores = ['#ff4d6d', '#ffd166', '#06d6a0', '#4dabf7', '#c77dff'];
+    const total = 35;
 
-    for (let i = 0; i < 80; i++) {
-      const confete = document.createElement('div');
-      confete.classList.add('confete');
-      confete.style.left = Math.random() * 100 + 'vw';
-      confete.style.backgroundColor = cores[Math.floor(Math.random() * cores.length)];
-      confete.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      confete.style.animationDelay = Math.random() * 5 + 's';
-      document.body.appendChild(confete);
+    for (let i = 0; i < total; i++) {
+      const c = document.createElement('div');
+      c.classList.add('coracao');
+      c.innerHTML = '🤍';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.animationDuration = (Math.random() * 6 + 6) + 's';
+      c.style.animationDelay = Math.random() * 5 + 's';
+      c.style.fontSize = (Math.random() * 14 + 16) + 'px';
+      document.body.appendChild(c);
     }
   </script>
 
 </body>
 </html>
-
