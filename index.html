@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Feliz Aniversário, Tia</title>
 
-  <!-- Fonte delicada -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -16,27 +15,49 @@
 
     body {
       height: 100vh;
-      background: linear-gradient(to bottom, #fde2e4, #fadadd);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-family: 'Cormorant Garamond', serif;
       overflow: hidden;
     }
 
+    /* Background com foto */
+    .background {
+      position: fixed;
+      inset: 0;
+      background-image: url("foto.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(8px) brightness(0.75);
+      transform: scale(1.1);
+      z-index: -2;
+    }
+
+    /* Camada de suavização */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(253, 226, 228, 0.75),
+        rgba(250, 218, 221, 0.85)
+      );
+      z-index: -1;
+    }
+
     .container {
       max-width: 700px;
-      background: rgba(255, 255, 255, 0.35);
+      margin: auto;
+      margin-top: 8vh;
+      background: rgba(255, 255, 255, 0.4);
       backdrop-filter: blur(14px);
       border-radius: 30px;
       padding: 70px 60px;
       text-align: center;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.18);
       animation: surgir 2s ease forwards;
     }
 
     h1 {
-      font-size: 3.4rem;
+      font-size: 3.3rem;
       color: #7a2e3a;
       margin-bottom: 30px;
       animation: respirar 4s ease-in-out infinite;
@@ -61,11 +82,10 @@
       animation-delay: 3s;
     }
 
-    /* Animações */
     @keyframes surgir {
       from {
         opacity: 0;
-        transform: translateY(50px) scale(0.95);
+        transform: translateY(50px) scale(0.96);
       }
       to {
         opacity: 1;
@@ -74,10 +94,6 @@
     }
 
     @keyframes aparecerTexto {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
       to {
         opacity: 1;
         transform: translateY(0);
@@ -90,7 +106,7 @@
       100% { transform: scale(1); }
     }
 
-    /* Corações flutuantes */
+    /* Corações */
     .coracao {
       position: absolute;
       bottom: -50px;
@@ -104,7 +120,7 @@
         transform: translateY(0) scale(0.8);
         opacity: 0;
       }
-      10% { opacity: 1; }
+      15% { opacity: 1; }
       to {
         transform: translateY(-110vh) scale(1.2);
         opacity: 0;
@@ -114,16 +130,18 @@
 </head>
 <body>
 
+  <div class="background"></div>
+  <div class="overlay"></div>
+
   <div class="container">
     <h1>Feliz aniversário, tia 🤍</h1>
 
     <p>
-      Que este dia te envolva com a mesma ternura que você espalha por onde passa.
-      Que cada sorriso seja sincero, cada abraço seja acolhedor e cada instante
-      seja preenchido com paz, amor e gratidão.
+      Que este dia seja envolto pelo mesmo amor que transborda do seu coração.
+      Que você sinta, em cada detalhe, o quanto é amada, admirada e essencial.
       <br><br>
-      Você é presença que conforta, carinho que permanece e luz que aquece.
-      Hoje é o seu dia — e ele merece ser tão bonito quanto o seu coração.
+      Sua presença é abrigo, seu carinho é força, e seu amor é lembrança eterna.
+      Hoje celebramos você — com ternura, gratidão e todo o afeto do mundo.
     </p>
 
     <div class="assinatura">
@@ -132,9 +150,7 @@
   </div>
 
   <script>
-    const total = 35;
-
-    for (let i = 0; i < total; i++) {
+    for (let i = 0; i < 30; i++) {
       const c = document.createElement('div');
       c.classList.add('coracao');
       c.innerHTML = '🤍';
