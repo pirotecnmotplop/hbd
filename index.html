@@ -20,7 +20,6 @@
       overflow-x: hidden;
     }
 
-  
     .background {
       position: fixed;
       inset: 0;
@@ -37,8 +36,8 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(253, 226, 228, 0.78),
-        rgba(250, 218, 221, 0.9)
+        rgba(240, 228, 255, 0.78),
+        rgba(225, 205, 255, 0.9)
       );
       z-index: -1;
     }
@@ -51,18 +50,19 @@
     }
 
     .card {
-      background-color: #6c4e75;
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(230, 215, 255, 0.35);
       backdrop-filter: blur(14px);
       border-radius: 28px;
-      padding: 50px 30px;
-      box-shadow: 0 25px 50px #241e26;
+      padding: 50px 32px;
+      box-shadow:
+        0 18px 35px rgba(145, 95, 200, 0.45),
+        0 8px 15px rgba(170, 130, 230, 0.35);
       animation: surgir 1.8s ease forwards;
     }
 
     h1 {
       font-size: clamp(2.2rem, 6vw, 3.2rem);
-      color: #7a2e3a;
+      color: #6a3c8f;
       margin-bottom: 28px;
       animation: respirar 4s ease-in-out infinite;
     }
@@ -70,7 +70,7 @@
     p {
       font-size: clamp(1.15rem, 4.2vw, 1.4rem);
       line-height: 1.8;
-      color: #5a2a32;
+      color: #4b2a63;
       opacity: 0;
       animation: aparecerTexto 2s ease forwards;
       animation-delay: 1.2s;
@@ -80,10 +80,17 @@
       margin-top: 35px;
       font-size: 1.15rem;
       font-style: italic;
-      color: #6b2f3a;
+      color: #5a2f78;
       opacity: 0;
       animation: aparecerTexto 2s ease forwards;
       animation-delay: 2.8s;
+    }
+
+    small {
+      display: block;
+      margin-top: 22px;
+      color: #6a3c8f;
+      opacity: 0.85;
     }
 
     @keyframes surgir {
@@ -110,12 +117,11 @@
       100% { transform: scale(1); }
     }
 
-    
     .coracao {
       position: fixed;
       bottom: -40px;
       font-size: 18px;
-      color: rgba(180, 80, 100, 0.55);
+      color: rgba(160, 110, 220, 0.55);
       animation: subir linear infinite;
       pointer-events: none;
     }
@@ -132,7 +138,6 @@
       }
     }
 
-    /* Ajustes finos para telas muito pequenas */
     @media (max-width: 380px) {
       .card {
         padding: 40px 22px;
@@ -147,22 +152,23 @@
 
   <div class="container">
     <div class="card">
-      <h1>Feliz aniversário, Mãe ❤️</h1>
+      <h1>Feliz aniversário, Mãe 💜</h1>
 
       <p>
-      -
-      <br><br>
-      -
+        Que você desfrute do seu dia ao lado das pessoas que realmente valem a pena,
+        no seu lugar preferido, com calma e tranquilidade, celebrando tudo o que você é.
+        <br><br>
+        Mesmo estando do outro lado do mundo, ainda consigo expressar meu amor e minha
+        gratidão por meio desta página que criei só para você.
       </p>
-      &copy; 2025, FruityFruits
+
+      <small>© 2025, FruityFruits</small>
+
       <div class="assinatura">
-        Um abraço e beijos, 💐.
+        Um abraço e beijos, 💐
       </div>
     </div>
   </div>
- </main>
-
- <script src="script.js"></script>
-
+</main>
 </body>
 </html>
